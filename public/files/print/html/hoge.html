@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+body {
+    margin: 0;
+    padding: 0;
+    font: 12pt;
+}
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.page {
+    width: 21cm;
+    min-height: 29.7cm;
+    padding: 1cm;
+    margin: 1cm auto;
+    border: 1px #fff solid;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.subpage {
+    padding: 0cm;
+    border: 5px white solid;
+    height: 237mm;
+    outline: 1cm #fff solid;
+}
+ 
+@page {
+    size: A4;
+    margin: 0;
+}
+@media print {
+    .page {
+        margin: 0;
+        border: initial;
+        border-radius: initial;
+        width: initial;
+        min-height: initial;
+        box-shadow: initial;
+        background: initial;
+        page-break-after: always;
+    }
+}
+
+/* my css */
+ul {
+    list-style:none;
+    padding: 0px;
+    margin: 0px;
+}
+table,
+td {
+    padding: 0px;
+    border: 1px #000000 solid;
+    border-collapse: collapse;
+}
+td.table-level {
+    width: 5.5cm;
+}
+td.table-judge {
+    width: 1cm;
+}
+ul.struct-list {
+    height: 1.8cm;
+}
+ul.struct-list > li:first-child {
+    border-bottom: 1px #000000 solid;
+}
+ul.struct-list > li:nth-child(2) {
+    text-align: center;
+    height: 1.2cm;
+    line-height: 1.8cm;
+}
+ul.struct-list > li:nth-child(2) > img {
+    width: 15%;
+}
+    </style>
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script>
+
+// 枠内のimgのサイズを一意化
+// TODO: 要修正　高さ対応など甘い
+function imgReRender($images) {
+    var imgNum = $images.length;
+    var rowWidth = $("td.table-level").width()-40;
+
+    if (imgNum > 4) {
+        var imgWidth = rowWidth / imgNum;
+        console.log(imgWidth);
+        $images.width(imgWidth);
+    }
+}
+
+$(function() {
+    var $li = $("ul.struct-list > li:nth-child(2)");
+
+    $li.each(function(index) {
+        $imgs = $(this).find("img");
+        imgReRender($imgs);
+    });
+});
+    </script>
+
+</head>
+<body>
+<div>
+    <div class="page">
+        <div class="subpage">
+            <table>
+                <thead>
+                    <tr>
+                        <td class="table-level">難度</td>
+                        <td class="table-judge">審判</td>
+                        <td class="table-level">難度</td>
+                        <td class="table-judge">審判</td>
+                        <td class="table-level">難度</td>
+                        <td class="table-judge">審判</td>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                
+                <tr>
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span>4</li>
+                            <li>
+                                
+                                 <img  width="20%" src='file:///Users/tag/programing/haha_shintaiso/RhythmicGymnastics/public/files/actions/a.png' alt="">
+                                
+                                 <img  width="20%" src='file:///Users/tag/programing/haha_shintaiso/RhythmicGymnastics/public/files/actions/b.png' alt="">
+                                
+                                 <img  width="20%" src='file:///Users/tag/programing/haha_shintaiso/RhythmicGymnastics/public/files/actions/a.png' alt="">
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span></li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span></li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                <tr>
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span>3</li>
+                            <li>
+                                
+                                 <img  width="20%" src='file:///Users/tag/programing/haha_shintaiso/RhythmicGymnastics/public/files/actions/a.png' alt="">
+                                
+                                 <img  width="20%" src='file:///Users/tag/programing/haha_shintaiso/RhythmicGymnastics/public/files/actions/b.png' alt="">
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span></li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span></li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                <tr>
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span>3</li>
+                            <li>
+                                
+                                 <img  width="20%" src='file:///Users/tag/programing/haha_shintaiso/RhythmicGymnastics/public/files/actions/a.png' alt="">
+                                
+                                 <img  width="20%" src='file:///Users/tag/programing/haha_shintaiso/RhythmicGymnastics/public/files/actions/b.png' alt="">
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span></li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span></li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                <tr>
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span></li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span></li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span></li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                <tr>
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span></li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span></li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span></li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                <tr>
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span></li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span></li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span></li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                <tr>
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span></li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span></li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span></li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                <tr>
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span></li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span></li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span></li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                <tr>
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span></li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span></li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span></li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                <tr>
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span></li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span></li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                
+                    <td>
+                        <ul class="struct-list">
+                            <li><span class="value-title">価値</span>: <span class="value-num"><span></li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                    </td>
+                
+                
+                </tbody>
+            </table>
+        </div>   
+    </div>
+</div>
+</body>
+</html>
