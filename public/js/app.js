@@ -204,11 +204,11 @@ angular.module('App', ['ngSanitize', 'ngResource'])
         var req = angular.toJson($scope.lines);
 
         // ローディング開始
-        $(".pdf-view-btn").spin()
+        $(".pdf-view-btn").spin();
 
         // エラーのコールバック関数も書かないと動かない
         // 公式のリファレンスちゃんと読もう...
-        $resource("http://localhost:9292/pdf").save(
+        $resource("http://153.121.51.112/rg/pdf").save(
             req, 
             function(link) { 
                 $scope.linkStatus = {

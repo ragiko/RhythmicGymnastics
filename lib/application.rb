@@ -2,6 +2,7 @@ require 'rubygems'
 require 'sinatra/base'
 require "sinatra/reloader"
 require 'digest/sha2'
+require 'erb'
 require 'json' # wickedpdfの後に呼ぶ
 require File.join(File.dirname(__FILE__), 'configuration.rb')
 
@@ -47,8 +48,10 @@ class Application < Sinatra::Base
                                            :bottom => 0,
                                            :left   => 0,
                                            :right  => 0})
-      name = 'public/files/print/pdf/'+filename+'.pdf'
-      File.write(name, pdf) # 中間ファイル
+
+      # sinatraのルーティングに合わせる
+      name = '/files/print/pdf/'+filename+'.pdf'
+      File.write("public"+name, pdf) # 中間ファイル
 
       name
     end
@@ -78,7 +81,7 @@ class Application < Sinatra::Base
 
     content_type :json, :charset => "utf-8"
     res = {
-      link:  File.expand_path(name) # ファイルのアクセス先を返す
+      link:  name # ファイルのアクセス先を返す
     }
     res.to_json
   end
