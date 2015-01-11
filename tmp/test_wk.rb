@@ -11,12 +11,15 @@ def write_pdf(bind_html)
 
     # make pdf
     WickedPdf.config = { :exe_path => '/usr/local/bin/wkhtmltopdf' }
+    puts 3
     wp = WickedPdf.new
+    puts 3
     pdf = wp.pdf_from_string( bind_html,
                              :margin => {:top => 0, # default 10 (mm)
                                          :bottom => 0,
                                          :left   => 0,
                                          :right  => 0})
+    puts 3
     name = 'public/files/print/pdf/'+filename+'.pdf'
     File.write(name, pdf) # 中間ファイル
 
@@ -26,10 +29,12 @@ end
 json = File.read("tmp/sample.json")
 action_list = JSON.parse(json)
 
+puts 1
 # make html
-html = File.read('public/files/print/template/print.html')
+html = File.read('tmp/print.html')
 erb = ERB.new(html)
 bind_html = erb.result(binding)
 File.write('public/files/print/html/hoge.html', bind_html) # 中間ファイル
+puts 2
 
-write_pdf(bind_html)
+p write_pdf(bind_html)

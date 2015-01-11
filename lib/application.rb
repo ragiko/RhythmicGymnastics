@@ -49,11 +49,11 @@ class Application < Sinatra::Base
                                            :left   => 0,
                                            :right  => 0})
 
-      # sinatraのルーティングに合わせる
       name = '/files/print/pdf/'+filename+'.pdf'
       File.write("public"+name, pdf) # 中間ファイル
 
-      name
+      # sinatraのルーティングに合わせる
+      name = '/rg'+name
     end
   end
 
