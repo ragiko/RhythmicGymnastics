@@ -58,7 +58,8 @@ angular.module('App', ['ngSanitize', 'ngResource'])
         $scope.editingLine = line; // 追加したlineを編集する
     };
 
-    $scope.editingLine = null;
+    // 編集行を始めの行に設定
+    $scope.editingLine = $scope.lines[0]; 
 
     $scope.addActionToLine = function (action) {
         if ($scope.editingLine === null) {
