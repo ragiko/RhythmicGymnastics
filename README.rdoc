@@ -8,3 +8,9 @@
 * Angular JS
 * Sinatra  
 * Wicked PDF
+
+== URL
+* http://153.121.51.112/rg/
+
+== youtube
+* https://www.youtube.com/watch?v=Uzaav5xjzTM&feature=youtu.be
