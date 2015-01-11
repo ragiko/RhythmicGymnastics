@@ -41,10 +41,9 @@ body {
     right: 0;
     z-index: 1000;
     display: block;
-    padding: 20px;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    background-color: #f5f5f5;
+    background-color: #0099CC;
     border-right: 1px solid #eee;
   }
 }
@@ -102,4 +101,50 @@ body {
 .placeholder img {
   display: inline-block;
   border-radius: 50%;
+}
+
+
+/*
+ * my css
+ */
+li {
+    width: 6em;
+    float: left;
+    list-style: none;
+}
+.editing {
+    background: #2ecc71 !important;
+}
+
+.operation {
+    margin-top: 13px;
+    margin-bottom: 21px;
+}
+
+.operation h3 {
+    color: white;
+}
+
+.actions img:hover {
+    border: solid 4px #1f5f8a;
+}
+
+.actions h3 {
+    color: white;
+    margin-left: 12px;
+}
+
+.my-table tbody tr {
+    height: 90px;
+}
+
+.my-table tbody tr:hover {
+    /* box-shadow */
+    box-shadow:rgba(113, 135, 164, 0.65) 0px 0px 6px 3px inset;
+    -webkit-box-shadow:rgba(113, 135, 164, 0.65) 0px 0px 6px 3px inset;
+    -moz-box-shadow:rgba(113, 135, 164, 0.65) 0px 0px 6px 3px inset;
+}
+
+.pdf-view-btn {
+    position: relative;
 }

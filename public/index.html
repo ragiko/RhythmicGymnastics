@@ -15,17 +15,6 @@
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
 
-    <style>
-li {
-    width: 6em;
-    float: left;
-    list-style: none;
-}
-.editing {
-    border: solid 3px black;
-}
-    </style>
-
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="js/angular/assets/js/ie-emulation-modes-warning.js"></script>
@@ -56,7 +45,7 @@ li {
       <div class="row">
         <div class="col-md-8 col-md-offset-0 main">
           <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table table-striped my-table">
               <thead>
                 <tr>
                   <td>順番</td>
@@ -74,33 +63,46 @@ li {
                         <ul>
                             <li ng-repeat="action in line.actions">
                                 <img ng-src="{{action.imgSrc}}"/>
-                                <span>{{ action.level }}</span>
                             </li>
                         </ul>
                     </td>
                 </tr>
               </tbody>
             </table>
-            <pre>{{ lines|json }}</pre>
-            <pre>{{ link|json }}</pre>
           </div>
         </div>
         <div class="col-md-4 sidebar" >
-            <a ng-href="{{link}}">pdf</a>
+            <div class="operation">
+                <h3>選択行の追加</h3>
+                <button class="btn btn-default" ng-click="createBefourLine()">選択行の前</button>
+                <button class="btn btn-default" ng-click="createAfterLine()">選択行の後</button>
+                <button class="btn btn-default" ng-click="addActionLine()">一番後ろ</button>
 
-            <button ng-click="getPdfLink()">pdfを取得</button><br>
-            <button ng-click="createBefourLine()">前にlineを挿入</button><br>
-            <button ng-click="createAfterLine()">後にlineを挿入</button><br>
-            <button ng-click="addActionLine()">一番後ろline追加</button><br>
-            <button ng-click="moveLineUp()">up</button>
-            <button ng-click="moveLineDown()">down</button>
-            <button ng-click="removeLine()">delete</button>
-            <div class="row">
+                <h3>選択行の操作</h3>
+                <button class="btn btn-default" ng-click="moveLineUp()">前に移動</button>
+                <button class="btn btn-default" ng-click="moveLineDown()">後に移動</button>
+                <button class="btn btn-default" ng-click="removeLine()">削除</button>
+
+                <h3>pdf</h3>
+                <button class="btn btn-default pdf-btn" ng-click="getPdfLink()">pdfの作成</button>
+                <a ng-href="{{ linkStatus.link }}"><button class="btn btn-default pdf-view-btn" btn-enable >pdfを見る</button></a><br>
+            </div>
+            <div class="row actions">
+                <h3>アクション</h3>
                 <div class="col-md-3">
-                    <img img-click class="img-responsive" src="files/actions/a.png" alt="" data-level=1>
+                    <a href=""><img img-click class="img-responsive" src="files/actions/1.png" alt="" data-level=1></a>
                 </div>
                 <div class="col-md-3">
-                    <img img-click class="img-responsive " src="files/actions/b.png" alt="" data-level=2>
+                    <a href=""><img img-click class="img-responsive" src="files/actions/2.png" alt="" data-level=1></a>
+                </div>
+                <div class="col-md-3">
+                    <a href=""><img img-click class="img-responsive" src="files/actions/3.png" alt="" data-level=1></a>
+                </div>
+                <div class="col-md-3">
+                    <a href=""><img img-click class="img-responsive" src="files/actions/4.png" alt="" data-level=1></a>
+                </div>
+                <div class="col-md-3">
+                    <a href=""><img img-click class="img-responsive" src="files/actions/5.png" alt="" data-level=2></a>
                 </div>
             </div>
         </div>
@@ -119,6 +121,8 @@ li {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.0/angular-sanitize.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
     <script src="js/angular/assets/js/location.js"></script>
+    <script src="js/spin.js"></script>
+    <script src="js/jquery.spin.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>

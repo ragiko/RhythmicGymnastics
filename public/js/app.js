@@ -26,6 +26,18 @@ angular.module('App', ['ngSanitize', 'ngResource'])
     });
   };
 }])
+.directive('btnEnable', [function () {
+  return function ($scope, $el, attrs) {
+      $scope.$watch('linkStatus', function (linkStatus) {
+          if (linkStatus.enable) {
+              $el.removeAttr('disabled');
+          } 
+          else {
+              $el.attr('disabled', true);
+          }
+      }, true);
+  };
+}])
 .controller('MainController', ['$scope', '$filter', '$resource', function ($scope, $filter, $resource) {
     // var where = $filter('filter'); // filter フィルタ関数の取得
 
@@ -79,6 +91,12 @@ angular.module('App', ['ngSanitize', 'ngResource'])
 
             $scope.editingLine.sumLevel = sum;
         }
+
+        // actionが変更されたら 
+        $scope.linkStatus = {
+            link: "",
+            enable: false,
+        };
     }, true);
 
     // lineの移動機能
@@ -146,17 +164,33 @@ angular.module('App', ['ngSanitize', 'ngResource'])
         $scope.lines.splice(index, 1);
     };
 
-    $scope.link = null
+    $scope.linkStatus = {
+        link: "",
+        enable: false,
+    };
 
     $scope.getPdfLink = function () {
         var req = angular.toJson($scope.lines);
-        console.log("start");
+
+        // ローディング開始
+        $(".pdf-view-btn").spin()
 
         // エラーのコールバック関数も書かないと動かない
         // 公式のリファレンスちゃんと読もう...
         $resource("http://localhost:9292/pdf").save(
             req, 
-            function(link) { $scope.link = link.link; },
-            function(err) { console.log(err); });
+            function(link) { 
+                $scope.linkStatus = {
+                    link: link.link, 
+                    enable: true, 
+                };
+                // ローディング終了
+                $(".pdf-view-btn").spin(false);
+            },
+            function(err) {
+                alert("pdfの作成中にエラーが発生しました")
+                $(".pdf-view-btn").spin(false);
+            }
+        );
     };
 }]);
