@@ -170,7 +170,37 @@ angular.module('App', ['ngSanitize', 'ngResource'])
         enable: false,
     };
 
+    function checkValidate() {
+        // 要素は30行以内
+        if ($scope.lines.length > 30) {
+            return {
+                "status": false,
+                "msg": "行は30行以内にして下さい",
+            };
+        }
+
+        // 行動が一つでも空なら
+        for (var i = 0; i < $scope.lines.length; i++) {
+            if ($scope.lines[i].actions.length == 0) {
+                return {
+                    "status": false,
+                    "msg": "空の行があります",
+                };
+            }
+        }
+
+        return {
+            "status": true,
+            "msg": "",
+        }; 
+    }
+
     $scope.getPdfLink = function () {
+        if (!checkValidate().status) {
+            alert(checkValidate().msg)
+            return;
+        }
+
         var req = angular.toJson($scope.lines);
 
         // ローディング開始
